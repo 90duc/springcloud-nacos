@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: dev
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: ALWAYS
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        metadata:
+          management:
+            context-path: /actuator/health
+
+server:
+  port: 8082
+
+zuul:
+  add-proxy-headers: false
+  set-content-length: true
+  semaphore:
+    max-semaphores: 600
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 120000
+ribbon:
+  ReadTimeout: 240000
+  ConnectTimeout: 2000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  eager-load:
+    enabled: true
+    clients: micro-service
