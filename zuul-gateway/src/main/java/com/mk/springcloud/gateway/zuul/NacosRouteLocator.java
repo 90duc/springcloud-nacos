@@ -1,4 +1,4 @@
-package com.mk.springcloud.apigateway.zuul;
+package com.mk.springcloud.gateway.zuul;
 
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.cloud.netflix.zuul.filters.RefreshableRouteLocator;

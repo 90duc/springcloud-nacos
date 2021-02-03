@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api-gateway
+    name: springcloud-gateway
   profiles:
     active: dev
   jackson:
@@ -14,15 +14,24 @@ spring:
         metadata:
           management:
             context-path: /actuator/health
-
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      httpclient:
+        connect-timeout: 60000
+        response-timeout: 5s
+      routes:
+      - id: micro-service1
+        uri: lb://micro-service
+        predicates:
+        - Path=/micro-service1/**
+        filters:
+        - StripPrefix=1
 server:
-  port: 8082
+  port: 8083
 
-zuul:
-  add-proxy-headers: false
-  set-content-length: true
-  semaphore:
-    max-semaphores: 600
 
 hystrix:
   command:

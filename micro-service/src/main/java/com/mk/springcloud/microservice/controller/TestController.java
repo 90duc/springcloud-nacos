@@ -10,4 +10,9 @@ public class TestController {
     public String test(){
         return "hello world";
     }
+
+    @GetMapping("/micro/test")
+    public String test1(){
+        return "hello world /";
+    }
 }
