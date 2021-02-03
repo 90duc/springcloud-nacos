@@ -30,7 +30,7 @@ public class NacosRouteLocator extends SimpleRouteLocator implements Refreshable
         Map<String, ZuulProperties.ZuulRoute> routesMap = new LinkedHashMap<>();
         ZuulProperties.ZuulRoute zuulRoute = new ZuulProperties.ZuulRoute();
         zuulRoute.setId("micro-service");
-        zuulRoute.setPath("/micro-service/*");
+        zuulRoute.setPath("/micro-service/**");
         zuulRoute.setServiceId("micro-service");
         routesMap.put(zuulRoute.getPath(), zuulRoute);
 
