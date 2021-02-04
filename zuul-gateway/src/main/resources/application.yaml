@@ -19,6 +19,8 @@ server:
   port: 8082
 
 zuul:
+  strip-prefix: true #转发路径截断匹配前缀
+#  prefix: "/api"
   add-proxy-headers: false
   set-content-length: true
   semaphore:

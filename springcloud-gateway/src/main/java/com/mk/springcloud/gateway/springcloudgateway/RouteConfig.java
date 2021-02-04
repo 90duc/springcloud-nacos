@@ -11,7 +11,8 @@ public class RouteConfig {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("micro-service2", r -> r.path("/micro/**")
+                .route("micro-service2", r -> r.path("/micro-service2/**")
+                        .filters(v->v.stripPrefix(1))
                         .uri("lb://micro-service"))
                 .build();
     }
