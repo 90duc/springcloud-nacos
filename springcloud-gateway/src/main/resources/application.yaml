@@ -26,6 +26,13 @@ spring:
         - Path=/micro-service1/**
         filters:
         - StripPrefix=1
+      - id: micro-service3
+        uri: lb://micro-service
+        predicates:
+        - Path=/micro-service3/**
+        filters:
+        - PrefixPath=/micro
+
 server:
   port: 8083
 
